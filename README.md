@@ -1,4 +1,3 @@
 # Omegalixir
 
-**TODO: Add description**
-
+Anonymous chat rooms implemented in Elixir.

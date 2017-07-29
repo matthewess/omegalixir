@@ -1,5 +1,6 @@
 defmodule Omega.UserTest do
   use ExUnit.Case, async: true
+  alias Omega.User, as: User
 
   setup do
     {:ok, user} = start_supervised Omega.User
@@ -7,6 +8,6 @@ defmodule Omega.UserTest do
   end
 
   test "name is retrievable", %{user: user} do
-    assert Omega.User.get_name(user) == "Null"
+    assert User.get_name(user) == "Null"
   end
 end

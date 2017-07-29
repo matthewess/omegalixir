@@ -3,5 +3,4 @@ defmodule Omega do
   Documentation for Omega.
   """
 
-  
 end

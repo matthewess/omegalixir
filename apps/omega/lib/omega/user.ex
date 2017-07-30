@@ -6,7 +6,7 @@ defmodule Omega.User do
   """
 
   @doc """
-  Creates a user given a name.
+  Creates a user with a random name.
   """
   def start_link(_opts) do
     name = Omega.Name.generate

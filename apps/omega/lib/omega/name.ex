@@ -41,6 +41,6 @@ defmodule Omega.Name do
 
   def generate do
     :rand.seed(:exsplus)
-    "#{Enum.random(adjectives())}.#{Enum.random(nouns())}.#{to_string(:rand.uniform(5))}"
+    "#{Enum.random(adjectives())}.#{Enum.random(nouns())}.#{to_string(:rand.uniform(9999))}"
   end
 end

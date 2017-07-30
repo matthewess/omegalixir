@@ -8,6 +8,6 @@ defmodule Omega.UserTest do
   end
 
   test "name is retrievable", %{user: user} do
-    assert User.get_name(user) =~ ~r|\w+\.\w+\.\d+|
+    assert User.get_name(user) =~ ~r|\w+\.\w+\.\d{1,4}|
   end
 end

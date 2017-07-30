@@ -16,7 +16,8 @@ defmodule Omegalixir.Mixfile do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:haikunator, "~> 1.0.0"}
     ]
   end
 end

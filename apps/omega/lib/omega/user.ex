@@ -9,7 +9,6 @@ defmodule Omega.User do
   Creates a user given a name.
   """
   def start_link(_opts) do
-    # TODO: fix this vvv
     name = Haikunator.build(4, ".")
     state = %{name: name}
     Agent.start_link(fn -> state end)

@@ -1,3 +1,3 @@
 %{"bunt": {:hex, :bunt, "0.2.0", "951c6e801e8b1d2cbe58ebbd3e616a869061ddadcc4863d0a2182541acae9a38", [], [], "hexpm"},
   "credo": {:hex, :credo, "0.8.4", "4e50acac058cf6292d6066e5b0d03da5e1483702e1ccde39abba385c9f03ead4", [], [{:bunt, "~> 0.2.0", [hex: :bunt, repo: "hexpm", optional: false]}], "hexpm"},
-  "haikunator": {:git, "https://github.com/matthewess/haikunator.git", "df49b4114b271ed899e8e67cdaa3c87be9620931", []}}
+  "haikunator": {:hex, :haikunator, "1.1.0", "4f07f0017c65ff4cadbf2f138d351d7725161ae137d186f28593cc85e65dceb2", [:mix], [], "hexpm"}}

@@ -17,7 +17,7 @@ defmodule Omegalixir.Mixfile do
   defp deps do
     [
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:haikunator, github: "matthewess/haikunator"}
+      {:haikunator, "~> 1.1"}
     ]
   end
 end

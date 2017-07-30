@@ -25,8 +25,6 @@ defmodule Omega.Mixfile do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [
-      {:haikunator, "~> 1.1"}
-    ]
+    []
   end
 end

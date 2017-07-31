@@ -2,7 +2,7 @@ defmodule Omega.User do
   use Agent
 
   @moduledoc """
-  Documentation for the User module.
+  Representation for a User.
   """
 
   @doc """

@@ -1,7 +1,12 @@
 defmodule Omega.Name do
+
+  @moduledoc """
+  Name generation library. Inspired by haikunator.
+  """
+
   defp adjectives do
     [
-      "adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish", 
+      "adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish",
       "calamitous", "caustic", "cerulean", "comely", "concomitant", "contumacious", "corpulent", "crapulous", "defamatory", "didactic",
       "dilatory", "dowdy", "efficacious", "effulgent", "egregious", "endemic", "equanimous", "execrable", "fastidious", "feckless",
       "fecund", "friable", "fulsome", "garrulous", "guileless", "gustatory", "heuristic", "histrionic", "hubristic", "incendiary",
@@ -39,6 +44,9 @@ defmodule Omega.Name do
     ]
   end
 
+  @doc """
+  Generate a random name in the form of "<adjective>.<noun>.<number>".
+  """
   def generate do
     :rand.seed(:exsplus)
     "#{Enum.random(adjectives())}.#{Enum.random(nouns())}.#{to_string(:rand.uniform(9999))}"

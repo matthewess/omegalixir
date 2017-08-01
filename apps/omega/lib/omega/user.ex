@@ -10,7 +10,8 @@ defmodule Omega.User do
   """
   def start_link(_opts) do
     name = Omega.Name.generate
-    state = %{name: name}
+    {:ok, room} = self |> Omega.Room.join()
+    state = %{name: name, room: room}
     Agent.start_link(fn -> state end)
   end
 

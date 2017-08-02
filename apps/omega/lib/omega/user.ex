@@ -1,16 +1,17 @@
 defmodule Omega.User do
-  use Agent
-
   @moduledoc """
   Representation for a User.
   """
+  use Agent
 
+  # Public API
+  
   @doc """
   Creates a user with a random name.
   """
   def start_link(_opts) do
     name = Omega.Name.generate
-    {:ok, room} = self |> Omega.Room.join()
+    {:ok, room} = Omega.RoomSupervisor.join(self)
     state = %{name: name, room: room}
     Agent.start_link(fn -> state end)
   end

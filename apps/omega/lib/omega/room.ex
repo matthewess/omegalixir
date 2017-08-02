@@ -1,26 +1,24 @@
 defmodule Omega.Room do
-  use GenServer
-
-  defstruct [:users]
-
   @moduledoc """
   Representation for an active room.
   """
+  use GenServer
 
   # Public API
 
   @doc """
-  Start a room.
+  Enter a User into a Room.
   """
-  def start_link(opts) do
-    GenServer.start_link(__MODULE__, :ok, opts)
+  def enter(room, user) do
+    GenServer.call(room, {:enter, user})
   end
 
   # Server Callbacks
 
-  defp init(args) do
-    users = args
-    state = %Omega.Room{users: users}
-    {:ok, state}
+  defp handle_call({:enter, user}, _from, users) do
+    users = [user | users]
+    num_users = users |> length
+    full = num_users >= Application.fetch_env!(:omega, :max_users_per_room)
+    {:reply, {:ok, full}, users}
   end
 end

@@ -1,9 +1,10 @@
 defmodule Omega.Name do
-
   @moduledoc """
   Name generation library. Inspired by haikunator.
   """
 
+  # Private functions 
+  
   defp adjectives do
     [
       "adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish",
@@ -43,6 +44,8 @@ defmodule Omega.Name do
       "paper", "frog", "smoke", "star",
     ]
   end
+
+  # Public API
 
   @doc """
   Generate a random name in the form of "<adjective>.<noun>.<number>".

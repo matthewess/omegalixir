@@ -6,6 +6,8 @@ defmodule Omega.RoomSupervisor do
 
   @name :room_supervisor
 
+  # Public API
+
   @doc """
   Start the Room Supervisor.
   """
@@ -13,19 +15,7 @@ defmodule Omega.RoomSupervisor do
     Supervisor.start_link(__MODULE__, :ok, name: @name)
   end
 
-  @doc """
-  Puts a user into a waiting Room.
-  """
-  def join(user) do
-    {:ok, full} = Omega.Room.enter(w_r, user)
-    if full do
-      w_r = new_room
-    end
-  end
-
-  defp new_room do
-    Supervisor.start_child(@name, [])
-  end
+  # Server Callbacks
 
   @doc """
   Supervisor initialization callback.
@@ -34,4 +24,9 @@ defmodule Omega.RoomSupervisor do
     Supervisor.init([Omega.Room], strategy: :simple_one_for_one)
   end
 
+  # Private functions
+
+  defp new_room(users) do
+    Supervisor.start_child(@name, [users])
+  end
 end

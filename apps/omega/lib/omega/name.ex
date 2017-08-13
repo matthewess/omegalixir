@@ -3,8 +3,8 @@ defmodule Omega.Name do
   Name generation library. Inspired by haikunator.
   """
 
-  # Private functions 
-  
+  # Private functions
+
   defp adjectives do
     [
       "adamant", "adroit", "amatory", "animistic", "antic", "arcadian", "baleful", "bellicose", "bilious", "boorish",

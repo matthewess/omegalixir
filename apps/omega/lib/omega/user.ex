@@ -11,7 +11,7 @@ defmodule Omega.User do
   """
   def start_link(_opts) do
     name = Omega.Name.generate
-    :ok = Omega.WaitingRoom.join
+    :ok = Omega.WaitingRoom.join(self())
     state = %{name: name, room: nil}
     Agent.start_link(fn -> state end)
   end
@@ -29,7 +29,7 @@ defmodule Omega.User do
   def start_chat(user, room) do
     case get_room(user) do
       :waiting -> Agent.update(user, &Map.update!(&1, :room, fn -> room end))
-      room -> {:error, :already_in_room}
+      _ -> {:error, :already_in_room}
     end
   end
 

@@ -25,8 +25,8 @@ defmodule Omega.Room do
 
   # Server Callbacks and private functions
 
-  defp init({:ok, users}) do
-    names = users |> Enum.map(&User.get_name(&1))
+  def init({:ok, users}) do
+    names = users |> Enum.map(&Omega.User.get_name(&1))
     state =
       users
       |> Enum.zip(names)
@@ -34,7 +34,7 @@ defmodule Omega.Room do
     {:ok, state}
   end
 
-  defp handle_call({:get_users, all}, from, state) do
+  def handle_call({:get_users, all}, from, state) do
     if all do
       {:reply, state, state}
     else

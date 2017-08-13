@@ -28,7 +28,7 @@ defmodule Omega.User do
   """
   def start_chat(user, room) do
     case get_room(user) do
-      :waiting -> Agent.update(user, &Map.update!(&1, :room, fn -> room end))
+      :waiting -> Agent.update(user, &Map.update!(&1, :room, fn(_) -> room end))
       _ -> {:error, :already_in_room}
     end
   end

@@ -1,10 +1,6 @@
 defmodule Omega.WaitingRoomTest do
   use ExUnit.Case, async: true
 
-  setup do
-    {:ok, room} = start_supervised Omega.WaitingRoom
-  end
-
   test "user in waiting room is in waiting state" do
     {:ok, user} = start_supervised Omega.User
     :ok = Omega.WaitingRoom.join(user)
@@ -13,8 +9,8 @@ defmodule Omega.WaitingRoomTest do
 
   test "rooms are created" do
     range = 1..Application.fetch_env!(:omega, :max_users_per_room)
-    users = Enum.map(range, fn(_) ->
-      {:ok, user} = start_supervised Omega.User
+    users = Enum.map(range, fn(i) ->
+      {:ok, user} = start_supervised Omega.User, id: "user" <> Integer.to_string(i)
       :ok = Omega.WaitingRoom.join(user)
       user
     end)

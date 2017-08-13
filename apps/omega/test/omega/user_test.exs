@@ -21,7 +21,7 @@ defmodule Omega.UserTest do
 
   test "room can't be set twice", %{user: user} do
     :ok = Omega.User.start_chat(user, :dummy_room)
-    assert
-      Omega.User.start_chat(user, :moron_room) == {:error, :already_in_room}
+    assert Omega.User.start_chat(user, :moron_room)
+      == {:error, :already_in_room}
   end
 end
